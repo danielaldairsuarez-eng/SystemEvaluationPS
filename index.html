@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#14251d">
+<title>Pawns Spanish | Evaluación de rangos</title>
+<style>
+:root{--bg:#0b100e;--panel:#141d18;--panel2:#1b2921;--gold:#e6c875;--text:#f5f5ef;--muted:#b7c3ba;--line:#314237;--green:#5cc08b;--blue:#83baff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#20382a 0,#0b100e 52%);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.5}button,input,select,textarea{font:inherit}button{cursor:pointer}.wrap{max-width:900px;margin:auto;padding:20px 14px 50px}.hero{border:1px solid #5b5434;background:linear-gradient(135deg,#1c3024,#101713);border-radius:24px;padding:24px 18px;text-align:center;box-shadow:0 18px 50px #0005}.logo{font-size:48px;line-height:1.2}.eyebrow{color:var(--gold);font-size:.78rem;letter-spacing:.17em;font-weight:800}.hero h1{margin:8px 0 2px;font-size:clamp(1.7rem,6vw,2.6rem);letter-spacing:.04em}.hero p{color:var(--muted);margin:8px auto 0;max-width:580px}.pill{display:inline-block;border:1px solid #6c623c;color:var(--gold);border-radius:999px;padding:5px 10px;font-size:.8rem;margin-top:14px}.section{margin-top:22px}.section h2{font-size:1.25rem;margin:0 0 12px}.rank-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}.rank{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:15px}.rank h3{margin:0 0 4px}.rank .tag{font-size:.75rem;color:var(--gold);font-weight:800}.rank p{margin:7px 0 0;color:var(--muted);font-size:.91rem}.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px}.hint{color:var(--muted);font-size:.9rem}.field{margin:14px 0}.field label,.field legend{display:block;font-weight:650;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;border:1px solid #43564a;background:#0d1510;color:var(--text);border-radius:11px;padding:12px;outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold);box-shadow:0 0 0 2px #e6c87522}.field textarea{min-height:88px;resize:vertical}.choices{display:grid;gap:8px}.choice{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:11px;background:#101813}.choice input{margin-top:5px;accent-color:var(--gold)}.btn{border:0;border-radius:12px;padding:12px 16px;font-weight:800}.primary{background:var(--gold);color:#17170f;width:100%}.secondary{background:#27392d;color:var(--text);border:1px solid #43564a}.result{display:none;margin-top:18px;border:1px solid #5c744e;background:#13251a;border-radius:16px;padding:17px}.result h3{margin:0 0 8px;color:var(--gold)}.score{font-size:2.2rem;font-weight:850}.notice{border-left:3px solid var(--gold);padding:10px 12px;background:#292617;color:#eee6c9;border-radius:5px;font-size:.9rem}.footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:26px}.small{font-size:.8rem;color:var(--muted)}.hidden{display:none!important}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="hero">
+    <div class="logo" aria-hidden="true">♟</div>
+    <div class="eyebrow">COMUNIDAD DE AJEDREZ</div>
+    <h1>PAWNS SPANISH</h1>
+    <p>Sistema de solicitudes y evaluación para los rangos administrativos del club.</p>
+    <div class="pill">Las promociones requieren autorización del dueño</div>
+  </header>
+
+  <section class="section">
+    <h2>♜ Jerarquía del club</h2>
+    <div class="rank-grid">
+      <article class="rank"><div class="tag">CLASE 1</div><h3>🟢 CC — Coordinación</h3><p>Apoyar y dirigir torneos, invitar integrantes y promocionar Pawns Spanish.</p></article>
+      <article class="rank"><div class="tag">CLASE 2</div><h3>🔵 AC — Administración</h3><p>Funciones de CC, participación en decisiones importantes, acceso al Consejo y Administración de SP, creación de torneos y sorteos beta.</p></article>
+      <article class="rank"><div class="tag">RANGO ADMINISTRATIVO SUPERIOR</div><h3>🟣 AS — Administrador superior</h3><p>Funciones anteriores, anuncios, foros y torneos con logros especiales, siempre con autorización del dueño.</p></article>
+      <article class="rank"><div class="tag">PROPIEDAD</div><h3>👑 SP — Dueño del club</h3><p>Propietario del club y responsable de definir la sucesión si deja el puesto.</p></article>
+    </div>
+  </section>
+
+  <section class="section panel">
+    <h2>📋 Solicitar una evaluación</h2>
+    <p class="hint">Completa la solicitud. La puntuación es orientativa y ayuda a revisar tu experiencia; no concede rangos automáticamente.</p>
+    <form id="application">
+      <div class="field"><label for="name">Nombre o apodo</label><input id="name" required maxlength="60" placeholder="Tu nombre en Pawns Spanish"></div>
+      <div class="field"><label for="profile">Perfil de Chess.com (opcional)</label><input id="profile" maxlength="160" placeholder="Enlace a tu perfil"></div>
+      <div class="field"><label for="rank">Rango que solicitas</label><select id="rank" required><option value="">Elige un rango</option><option value="CC">CC — Coordinación</option><option value="AC">AC — Administración</option><option value="AS">AS — Administrador superior</option></select></div>
+      <div class="field"><label for="experience">¿Qué has hecho por el club o qué experiencia tienes?</label><textarea id="experience" required maxlength="1200" placeholder="Ej.: ayudar a miembros, organizar partidas, invitar jugadores…"></textarea></div>
+      <div class="field"><label>Autoevaluación (elige una respuesta por apartado)</label><p class="small">Cada respuesta suma de 0 a 2 puntos. Responde con honestidad; el dueño revisará la solicitud.</p>
+        <div class="field"><label for="reliability">1. Responsabilidad y cumplimiento</label><select id="reliability"><option value="0">Todavía necesito mejorar en esto (0)</option><option value="1">A veces cumplo y sigo aprendiendo (1)</option><option value="2">Soy constante y cumplo mis compromisos (2)</option></select></div>
+        <div class="field"><label for="teamwork">2. Trabajo en equipo y respeto</label><select id="teamwork"><option value="0">Necesito mejorar (0)</option><option value="1">Generalmente colaboro (1)</option><option value="2">Colaboro y trato a todos con respeto (2)</option></select></div>
+        <div class="field"><label for="activity">3. Participación en el club</label><select id="activity"><option value="0">Apenas estoy empezando (0)</option><option value="1">Participo de vez en cuando (1)</option><option value="2">Participo y ayudo regularmente (2)</option></select></div>
+        <div class="field"><label for="judgment">4. Resolver problemas con calma</label><select id="judgment"><option value="0">Necesito orientación (0)</option><option value="1">Puedo resolver algunos casos (1)</option><option value="2">Escucho, analizo y pido ayuda si hace falta (2)</option></select></div>
+        <div class="field"><label for="permissions">5. Entender los límites de permisos</label><select id="permissions"><option value="0">Necesito conocer mejor las reglas (0)</option><option value="1">Conozco algunas reglas (1)</option><option value="2">Pediré autorización para acciones reservadas al dueño (2)</option></select></div>
+      </div>
+      <div class="field"><label for="plan">¿Qué aportarías si recibes el rango?</label><textarea id="plan" required maxlength="1000" placeholder="Describe tus ideas para ayudar al club…"></textarea></div>
+      <div class="field"><label class="choice"><input id="confirm" type="checkbox" required><span>Confirmo que la información es honesta y entiendo que esta solicitud no garantiza un ascenso.</span></label></div>
+      <button class="btn primary" type="submit">Calcular puntuación y preparar solicitud</button>
+    </form>
+    <div id="result" class="result" aria-live="polite">
+      <h3>♟ Resultado de tu autoevaluación</h3>
+      <div class="score"><span id="score">0</span><span style="font-size:1rem"> / 10 puntos</span></div>
+      <p id="scoreText"></p>
+      <div class="notice">Estado: <strong>PENDIENTE DE REVISIÓN MANUAL</strong>. Solo el dueño puede confirmar una promoción. Esta página no otorga permisos en Chess.com.</div>
+      <p class="hint">Copia el resumen y envíaselo al dueño por el canal oficial del club. Esta versión estática no envía ni guarda automáticamente tus datos.</p>
+      <textarea id="summary" readonly aria-label="Resumen de solicitud"></textarea>
+      <button class="btn secondary" id="copy" type="button" style="width:100%;margin-top:10px">Copiar resumen</button>
+      <p id="copyStatus" class="small" aria-live="polite"></p>
+      <button class="btn secondary" id="reset" type="button" style="width:100%;margin-top:8px">Hacer otra solicitud</button>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="notice"><strong>Importante:</strong> GitHub Pages publica archivos estáticos. Esta primera versión calcula la puntuación en el dispositivo, pero no tiene cuentas, base de datos ni panel privado de administración. No introduzcas contraseñas ni información sensible.</div>
+  </section>
+  <footer class="footer">Pawns Spanish ♟ · Sistema de solicitudes · Versión inicial</footer>
+</main>
+<script>
+const form=document.getElementById('application');
+const result=document.getElementById('result');
+form.addEventListener('submit',function(e){
+ e.preventDefault();
+ const name=document.getElementById('name').value.trim();
+ const profile=document.getElementById('profile').value.trim();
+ const rank=document.getElementById('rank').value;
+ const experience=document.getElementById('experience').value.trim();
+ const plan=document.getElementById('plan').value.trim();
+ const fields=['reliability','teamwork','activity','judgment','permissions'];
+ const score=fields.reduce((sum,id)=>sum+Number(document.getElementById(id).value),0);
+ document.getElementById('score').textContent=score;
+ document.getElementById('scoreText').textContent=score>=8?'Autoevaluación alta. Revisa los ejemplos y la experiencia antes de decidir.':score>=5?'Autoevaluación intermedia. La revisión puede identificar fortalezas y aspectos por desarrollar.':'Autoevaluación inicial. Puedes conversar con el dueño sobre cómo prepararte para el rango.';
+ const rankNames={CC:'CC — Coordinación',AC:'AC — Administración',AS:'AS — Administrador superior'};
+ const summary=[
+ 'SOLICITUD DE PAWNS SPANISH',
+ 'Nombre/apodo: '+name,
+ 'Perfil de Chess.com: '+(profile||'No proporcionado'),
+ 'Rango solicitado: '+rankNames[rank],
+ 'Puntuación de autoevaluación: '+score+'/10',
+ 'Experiencia: '+experience,
+ 'Aporte propuesto: '+plan,
+ 'Estado: PENDIENTE DE REVISIÓN MANUAL',
+ 'Nota: la puntuación no concede el rango. Requiere autorización del dueño.'
+ ].join('\n');
+ document.getElementById('summary').value=summary;
+ result.style.display='block';
+ result.scrollIntoView({behavior:'smooth',block:'start'});
+});
+document.getElementById('copy').addEventListener('click',async()=>{
+ const box=document.getElementById('summary');
+ try{await navigator.clipboard.writeText(box.value);document.getElementById('copyStatus').textContent='¡Resumen copiado! Pégalo en el chat del club.';}
+ catch(e){box.focus();box.select();document.getElementById('copyStatus').textContent='Selecciona el texto y usa Copiar desde el menú de tu celular.';}
+});
+document.getElementById('reset').addEventListener('click',()=>{
+ form.reset();result.style.display='none';document.getElementById('copyStatus').textContent='';form.scrollIntoView({behavior:'smooth',block:'start'});
+});
+</script>
+</body>
+</html>
